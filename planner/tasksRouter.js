@@ -1,6 +1,6 @@
 const express = require("express")
 const db = require("../data/dbConfig")
-const Tasks = require("./resources-model")
+const Tasks = require("./tasks-model")
 const router = express.Router()
 
 // `GET request /api/tasks/ retrieves all tasks

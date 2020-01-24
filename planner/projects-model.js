@@ -4,6 +4,7 @@ module.exports = {
    findAll,
    findById,
    add
+  
 }
 
 function findAll() {
@@ -20,4 +21,5 @@ function add(data) {
     return db("projects").insert(data)
 
 }
+
 
