@@ -4,10 +4,10 @@ exports.up = function(knex) {
     .createTable('projects', tbl => {
         tbl.increments()
             .unsigned();
-        tbl.string('name', 125)
+        tbl.string('projects_name', 125)
             .index()
             .notNullable();
-        tbl.string('description', 300);
+        tbl.string('projects_description', 300);
         tbl.boolean('completed')
             .notNullable()
             .defaultTo(false);
@@ -15,15 +15,15 @@ exports.up = function(knex) {
     .createTable('resources', tbl => {
         tbl.increments()
             .unsigned();
-        tbl.string('name', 125)
+        tbl.string('resources_name', 125)
             .notNullable();
-        tbl.string('description',200);
+        tbl.string('resources_description',200);
 
     })
     .createTable('tasks',tbl => {
         tbl.increments()
             .unsigned();
-        tbl.string('description', 300)
+        tbl.string('tasks_description', 300)
             .notNullable();
         tbl.string('notes', 300);     
         tbl.integer('projects_id')
@@ -31,7 +31,7 @@ exports.up = function(knex) {
             .unsigned()
             .references('id')
             .inTable('projects');
-        tbl.boolean('completed')
+        tbl.boolean('tasks_completed')
             .notNullable()
             .defaultTo(false);
     })

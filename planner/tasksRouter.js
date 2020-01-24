@@ -17,16 +17,20 @@ router.get('/', (req,res) => {
 
 
 //Post request to api/tasks adds new task
-router.post('/', (req, res) => {
-    const newTask = req.body;
- db('tasks')
-    .insert(newTask)
-    .then(tasks => {
-        res.status(201).json(tasks);
-    })
-    .catch(err => {
-        console.log(err)
-    })
-})
+//not working
+router.post("/", (req, res) => {
+   
+    const body = req.body;
+  
+    Tasks.addTasks( body)
+      .then(tasks => {
+        res.status(200).json(tasks);
+      })
+      .catch(err => {
+          console.log(err,"error in posting")
+        res.status(500).json({ message: "error in posting" });
+      });
+  });
+
 
 module.exports = router;

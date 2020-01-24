@@ -2,17 +2,17 @@ const db = require('../data/dbConfig.js')
 
 module.exports = {
    findAll,
-   add
+   addTasks
 }
 
 function findAll() {
     return db("tasks")
         .join("projects", "projects.id", "tasks.projects_id")
-        .select("tasks.id", "tasks.description", "tasks.notes", "tasks.completed", "projects.name", "projects.description")
+        .select("projects.projects_name", "projects.projects_description","projects.id", "tasks.tasks_description", "tasks.notes", "tasks.tasks_completed")
 }
 
-function add(data) {
-    return db("tasks").insert(data)
-
-}
+function addTasks(taskBody) {
+    return db("tasks")
+      .insert(taskBody)
+        }
 
